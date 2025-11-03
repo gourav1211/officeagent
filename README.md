@@ -46,10 +46,10 @@ Create a `.env` file in the project root with at least:
 ```
 GEMINI_API_KEY=your-gemini-api-key
 LLM_PROVIDER=gemini
-# Choose a model, for example:
-LLM_MODEL=gemini-1.5-pro
-# or
-# LLM_MODEL=gemini-2.5-flash
+# Default model (recommended):
+LLM_MODEL=gemini-2.5-flash
+# or another supported model:
+# LLM_MODEL=gemini-1.5-pro
 LLM_TEMPERATURE=0.7
 
 # Feature toggles
@@ -63,7 +63,7 @@ Alternatively, you can set these in the shell:
 ```powershell
 $env:GEMINI_API_KEY = "your-gemini-api-key"
 $env:LLM_PROVIDER = 'gemini'
-$env:LLM_MODEL = 'gemini-1.5-pro'
+$env:LLM_MODEL = 'gemini-2.5-flash'
 $env:LLM_TEMPERATURE = '0.7'
 ```
 
