@@ -103,14 +103,13 @@ class OfficeAIAgent:
         """
         t = task.lower()
         if any(k in t for k in ("slide", "presentation", "ppt")):
-            n = self._extract_int(t) or 3
-            title = self._extract_title(task) or "Generated Presentation"
-            return self._make_presentation(title, n)
+            # Delegate to PresentationAgent so it can use Gemini when available
+            return self.agents["presentation"].execute(task, context=context)
         if any(k in t for k in ("sheet", "spreadsheet", "excel", "table")):
-            title = self._extract_title(task) or "Generated Sheet"
-            return self._make_workbook(title)
-        title = self._extract_title(task) or "Generated Document"
-        return self._make_document(title)
+            # Delegate to SpreadsheetAgent to allow Gemini-driven table generation
+            return self.agents["spreadsheet"].execute(task, context=context)
+        # Default to DocumentAgent
+        return self.agents["document"].execute(task, context=context)
 
     @staticmethod
     def _extract_int(s: str) -> Optional[int]:
