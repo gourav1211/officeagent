@@ -1,0 +1,9 @@
+# Server-only minimal set (pinned)
+fastapi==0.120.4
+uvicorn[standard]==0.38.0
+httpx==0.28.1
+pydantic==2.12.3
+python-dotenv==1.2.1
+langchain==1.0.3
+google-generativeai==0.8.5
+langchain-google-genai==3.0.0
